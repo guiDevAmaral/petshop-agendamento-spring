@@ -16,4 +16,12 @@ public class AgendamentoController {
     public Agendamento criar(@RequestBody Agendamento agendamento) {
         return service.salvar(agendamento);
     }
+
+    @Autowired
+    private com.petshop.agendamento.repository.AgendamentoRepository repository; // para listagem direta
+
+    @GetMapping
+    public java.util.List<Agendamento> listarTodos() {
+        return repository.findAll();
+    }
 }
